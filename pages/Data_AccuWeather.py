@@ -48,8 +48,6 @@ def scraping(lokasi):
     sekarang = datetime.now(tz=timezone(timedelta(hours=8)))  # GMT+8
     day_range = 3
 
-    print(sekarang)
-
     for days in range(1, day_range+1):
         response = requests.get(lokasi+str(days), headers=web_headers)
         soup = BeautifulSoup(response.content, "html.parser")
@@ -66,7 +64,6 @@ def scraping(lokasi):
                 "p", attrs={"class": ""})
 
             hour = [date+isi.text for isi in tag_hour]
-
             precipitation = [isi.text for isi in tag_precipitation]
             hujan = [
                 isi.text for isi in tag_hujan if isi.text.startswith("Hujan")]
@@ -105,8 +102,6 @@ forecast_pandiri = scraping(pandiri)
 
 st.header("Weather Forecast Data Scraping :mostly_sunny: - accuweather.com")
 st.subheader("Rainfall All Station 	:house:")
-
-st.table(forecast_tentena)
 
 col_rf_tentena, col_rf_salukaia, col_rf_panjo, col_rf_mayoa, col_rf_tindoli = st.columns(
     5)
