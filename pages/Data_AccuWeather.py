@@ -103,6 +103,8 @@ forecast_pandiri = scraping(pandiri)
 st.header("Weather Forecast Data Scraping :mostly_sunny: - accuweather.com")
 st.subheader("Rainfall All Station 	:house:")
 
+st.table(forecast_tentena)
+
 col_rf_tentena, col_rf_salukaia, col_rf_panjo, col_rf_mayoa, col_rf_tindoli = st.columns(
     5)
 
