@@ -49,7 +49,7 @@ def scraping(lokasi):
 
     for days in range(1, day_range+1):
         response = requests.get(lokasi+str(days), headers=web_headers)
-        soup = BeautifulSoup(response.content, "lxml")
+        soup = BeautifulSoup(response.content, "html.parser")
         cards = soup.find_all("div", attrs={"class": "accordion-item hour"})
 
         for card in range(0, len(cards)):

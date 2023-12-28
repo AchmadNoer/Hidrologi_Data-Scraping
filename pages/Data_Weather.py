@@ -57,7 +57,7 @@ def datetime_list():
 def scraping(lokasi):
     date_time = datetime_list()
     response = requests.get(lokasi, headers=web_headers)
-    soup = BeautifulSoup(response.content, "lxml")
+    soup = BeautifulSoup(response.content, "html.parser")
 
     tag_probabilities = soup.find_all(
         "span", attrs={"data-testid": "PercentageValue", "class": ""})
