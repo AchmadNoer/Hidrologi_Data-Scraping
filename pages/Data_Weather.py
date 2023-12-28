@@ -63,7 +63,6 @@ def scraping(lokasi):
         "span", attrs={"data-testid": "PercentageValue", "class": ""})
     tag_rainfall = soup.find_all("span", attrs={
                                  "data-testid": "AccumulationValue", "class": "DetailsTable--value--2YD0-"})
-
     probabilitas = [isi.string for isi in tag_probabilities]
     hujan = [isi.find("span", recursive=False).string for isi in tag_rainfall]
 

@@ -32,7 +32,7 @@ with st.sidebar:
     day = (pd.to_datetime(option) - datetime.now()).days + 1
 
 web_headers = {
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0'}
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
 
 tentena = "https://www.accuweather.com/id/id/saojo/679113/hourly-weather-forecast/679113?unit=c&day="
 salukaia = "https://www.accuweather.com/id/id/leboni/205822/hourly-weather-forecast/205822?unit=c&day="
