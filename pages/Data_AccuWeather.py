@@ -6,6 +6,7 @@ import warnings
 import requests
 import streamlit as st
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 
 warnings.filterwarnings('ignore')
@@ -43,7 +44,8 @@ pandiri = "https://www.accuweather.com/id/id/poso/205881/hourly-weather-forecast
 
 
 def scraping(lokasi):
-    konten = pd.DataFrame()
+    konten = pd.DataFrame(np.empty((0, 3)))
+    print(konten)
     sekarang = datetime.now(tz=timezone(timedelta(hours=8)))  # GMT+8
     day_range = 3
 
