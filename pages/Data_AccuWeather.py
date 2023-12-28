@@ -48,6 +48,8 @@ def scraping(lokasi):
     sekarang = datetime.now(tz=timezone(timedelta(hours=8)))  # GMT+8
     day_range = 3
 
+    print(sekarang)
+
     for days in range(1, day_range+1):
         response = requests.get(lokasi+str(days), headers=web_headers)
         soup = BeautifulSoup(response.content, "html.parser")
@@ -55,8 +57,6 @@ def scraping(lokasi):
 
         for card in range(0, len(cards)):
             date = str(sekarang.strftime('%Y-%m-%d '))
-
-            print(date)
 
             tag_hour = BeautifulSoup(str(BeautifulSoup(str(cards[card]))
                                          .find_all("h2", attrs={"class": "date"}))).find_all("div", attrs={"class": ""})
@@ -67,7 +67,6 @@ def scraping(lokasi):
 
             hour = [date+isi.text for isi in tag_hour]
 
-            print(hour)
             precipitation = [isi.text for isi in tag_precipitation]
             hujan = [
                 isi.text for isi in tag_hujan if isi.text.startswith("Hujan")]
