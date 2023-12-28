@@ -44,7 +44,7 @@ pandiri = "https://www.accuweather.com/id/id/poso/205881/hourly-weather-forecast
 
 
 def scraping(lokasi):
-    konten = pd.DataFrame(np.empty((0, 3)))
+    konten = pd.DataFrame()
     sekarang = datetime.now(tz=timezone(timedelta(hours=8)))  # GMT+8
     day_range = 3
 
@@ -56,6 +56,8 @@ def scraping(lokasi):
         for card in range(0, len(cards)):
             date = str(sekarang.strftime('%Y-%m-%d '))
 
+            print(date)
+
             tag_hour = BeautifulSoup(str(BeautifulSoup(str(cards[card]))
                                          .find_all("h2", attrs={"class": "date"}))).find_all("div", attrs={"class": ""})
             tag_precipitation = BeautifulSoup(str(cards[card])).find_all(
@@ -64,6 +66,8 @@ def scraping(lokasi):
                 "p", attrs={"class": ""})
 
             hour = [date+isi.text for isi in tag_hour]
+
+            print(hour)
             precipitation = [isi.text for isi in tag_precipitation]
             hujan = [
                 isi.text for isi in tag_hujan if isi.text.startswith("Hujan")]
